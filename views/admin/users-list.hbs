@@ -1,0 +1,65 @@
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <div class="page-header">
+                <h4 class="page-title">USER MANAGER</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">All User Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="basic-datatables" class="display table  table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Status</th>
+                                            <th>Block/Unblock</th>
+                                            <th>Action</th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each userlist}}
+                                        <tr>
+                                            <td>{{this.name}}</td>
+                                            <td>{{this.email}}</td>
+                                            {{#if this.blockuser}}
+                                            <td>Not Active</td>
+                                            {{else}}
+                                            <td>Active</td>
+                                            {{/if}}
+
+                                            {{#if this.blockuser}}
+                                            <td style=" text-align: center;">
+                                                <a href="/admin/unblock-user/{{this._id}}" class=" btn btn-success"
+                                                    onclick="unblockuser(event)">Unblock</a>
+
+
+                                            </td>
+                                            {{else}}
+                                            <td style=" text-align: center;">
+                                                <a href="/admin/block-user/{{this._id}}" class=" btn btn-primary"
+                                                    onclick="blockuser(event)"> Block </a>
+                                            </td>
+                                            {{/if}}
+                                            <td style=" text-align: center;">
+                                                <a href="/admin/delete-user/{{this._id}}" class=" btn btn-danger"
+                                                    onclick="deleteuser(event)">Delete</a>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

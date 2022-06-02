@@ -1,0 +1,86 @@
+<script>
+    function viewImg(event) {
+        document.getElementById("imgView").src =
+            URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="comment-form">
+                <h4>Write your blog here</h4>
+                <form method="POST" enctype="multipart/form-data" action="/edit-blog-details/{{blogDetails._id}}">
+                    <div class="form-group">
+                        <label for="">Destination:</label>
+                        <input type="text" name="destination" value="{{blogDetails.destination}}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">District:</label>
+                        <select class="form-control" name="district" id="">
+                            <option value="{{blogDetails.district}}">{{blogDetails.district}}
+                            </option>
+                            {{#each allCategory}}
+                            <option value="{{this.categoryName}}">{{this.categoryName}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Write a paragraph one</label>
+                        <textarea name="paragraph1" class="form-control mb-10"
+                            rows="5">{{blogDetails.paragraph1}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Write a paragraph Two</label>
+                        <textarea name="paragraph2" class="form-control mb-10"
+                            rows="5">{{blogDetails.paragraph2}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Write a paragraph Three</label>
+                        <textarea name="paragraph3" class="form-control mb-10"
+                            rows="5">{{blogDetails.paragraph3}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Places To Stay:</label>
+                        <input type="text" name="placesToStay" value="{{blogDetails.placesToStay}}"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Things To Do:</label>
+                        <textarea name="thingstoDo" class="form-control mb-10"
+                            rows="5">{{blogDetails.thingstoDo}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Popular Tourist Attractions: </label>
+                        <textarea name="popularTouristAttractions" class="form-control mb-10"
+                            rows="5">{{blogDetails.popularTouristAttractions}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Best Time To Visit:</label>
+                        <input type="text" name="bestTimeToVisit" value="{{blogDetails.bestTimeToVisit}}"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nearest Airport:</label>
+                        <input type="text" name="nearestAirport" value="{{blogDetails.nearestAirport}}"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nearest Railway Station:</label>
+                        <input type="text" name="nearestRailwayStation" value="{{blogDetails.nearestRailwayStation}}"
+                            class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label for="">Upload an Image</label>
+                    </div>
+
+                    <div class="form-group">
+                        <img src="/images/{{blogDetails._id}}.jpg" style="width: 200px;height: 200px;" alt=""
+                            id="imgView" /><br><br>
+                        <input type="file" onchange="viewImg(event)" class="form-control-file" name="image" />
+                    </div>
+                    <button type="submit" class="button submit_btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="icon/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3>Login</h3>
+                 
+            <form action="/login" method="post">
+              <div class="form-group first">
+                <label for="">Email</label>
+                <input type="email" name="email" class="form-control" id="" required>
+              </div>
+              <div class="form-group last mb-4">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control" id=""required>
+              </div>
+              {{#if logedinErr}}
+              <div class="form-group last mb-4">
+                <label for="" style="color: #f10707;">Invalid username or password!!!</label>
+              </div>
+              {{/if}}
+              {{#if blockuser}}
+              <div class="form-group last mb-4">
+                <label for="" style="color: #f10707;">Account is Blocked!!!</label>
+              </div>
+              {{/if}}
+
+              <input type="submit" value="Log In" class="btn btn-block btn-primary">
+               
+            <hr>
+              <div class="d-flex justify-content-center">
+                <label for=""><b>OR</b> </label>
+              </div>
+               <div class="form-group last mb-1  d-flex justify-content-center">
+                  <span class="d-block text-left my-1 text-muted"><p><a href="/mobile-number">Login with Otp</a></p></span>
+              </div>
+  
+              <div class="form-group last mb-1">
+                  <span class="d-block text-left my-1 text-muted"><p>Not a member?<a href="/signup">Register</a></p></span>
+              </div>
+             
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

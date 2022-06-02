@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-center align-items-center container otp">
+    <div class="card py-5 px-3">
+        <h5 class="m-0">Login with Mobile</h5>
+        <span class="mobile-text">Enter your Mobile Number</span>
+       <form method="POST"  action="/mobile-number">
+        <div class="d-flex flex-row mt-3">
+            <input type="tel" name="mobile" class="form-control" autofocus="" />
+        </div>
+        {{#if nouser}}
+         <div class="d-flex flex-row mt-3">
+           <label style="color: #f10707;">No user found</label>
+        </div>
+        {{/if}}
+        {{#if accoutBlocked}}
+          <div class="d-flex flex-row mt-3">
+           <label style="color: #f10707;">Your account is blocked by admin</label>
+        </div>
+        {{/if}}
+        <div class="d-flex flex-row mt-3" >
+            <button type="submit" class=" btn btn-dark ml-3">send otp as sms</button>
+            <button type="submit" class=" btn btn-dark ml-3 " formaction="/mobile-number1">send otp as call</button>
+        </div>
+        </form>
+       <div class="text-center mt-3">
+             <a href="/login"><span class="font-weight-bold text-danger cursor">Back to login</span></a>
+        </div>
+    </div>
+</div>
+<style>
+    .card {
+        width: 350px;
+        padding: 10px;
+        border-radius: 20px;
+        background: #fff;
+        border: none;
+        height: 350px;
+        position: relative;
+    }
+
+    .otp {
+        height: 60vh;
+    }
+
+
+    .mobile-text {
+        color: #989696b8;
+        font-size: 15px;
+    }
+
+    .form-control {
+        margin-right: 12px;
+    }
+
+    .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #ff8880;
+        outline: 0;
+        box-shadow: none;
+    }
+
+    .cursor {
+        cursor: pointer;
+    }
+</style>

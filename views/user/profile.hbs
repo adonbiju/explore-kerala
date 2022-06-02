@@ -1,0 +1,96 @@
+ <script>
+    function viewImg(event) {
+        document.getElementById("imgView").src = URL.createObjectURL(event.target.files[0]);
+
+    }
+</script>
+
+    <section class="mb-30px">
+    <div class="container d-flex justify-content-end">
+      <a href="/change-password" class="button submit_btn">Change Password</a>
+    </div>
+  </section>
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" action="/profile/{{user_login._id}}">
+    <div class="row">
+{{!-- profile picture upload section --}}
+        <div class="col-lg-4 sidebar-widgets">
+            <div class="widget-wrap">
+                <div class="single-sidebar-widget newsletter-widget">
+                    <h4 class="single-sidebar-widget__title">Upload Profile Picture</h4>
+                    <div class="form-group mt-30">
+                        <div class="col-autos">
+                             <img  class="rounded-4"src="/profile/{{profileDetails._id}}.jpg" style="width: 200px;height: 200px;" alt="" id="imgView">
+                        </div>
+                        <div class="col-autos">
+                                <input type="file" class="form-control-file" id="" name="image" onchange="viewImg(event)">
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+{{!-- profile picture upload section end here --}}
+
+{{!-- profile picture details section  --}}
+
+        <div class="col-lg-8">
+            <div class="comment-form">
+                <h4>Enter your profile Details</h4>
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <label for="">FULL NAME:</label>
+                            <input type="text" name="name" class="form-control" value="{{profileDetails.name}}" />
+
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="">PHONE NUMBER:</label>
+                            <input type="text" name="mobile1" class="form-control" value="{{profileDetails.mobile1}}" required />
+
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="">ALTERNATE PHONE NUMBER:</label>
+                            <input type="text" name="mobile2" class="form-control" value="{{profileDetails.mobile2}}" required />
+
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="">EMAIL:</label>
+                            <input type="text" name="email" class="form-control"  value="{{profileDetails.email}}"required />
+
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="">PINCODE:</label>
+                            <input type="text" name="pincode" class="form-control" value="{{profileDetails.pincode}}" required />
+
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="">COUNTRY:</label>
+                            <input type="text" name="country" class="form-control" value="{{profileDetails.country}}" required />
+
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="">CITY:</label>
+                            <input type="text" name="city" class="form-control" value="{{profileDetails.city}}" required />
+
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label for="">STATE:</label>
+                            <input type="text" name="state" class="form-control" value="{{profileDetails.state}}" required />
+
+                        </div>
+                         <div class="col-lg-6 form-group d-flex justify-content-start">
+                            <button type="submit" class="button submit_btn">Update Profile</button>
+                        </div>
+                         
+                       
+
+                    </div>
+           
+            </div>
+        </div>
+{{!-- profile picture details section end here --}}
+
+    </div>
+    </form>
+</div>

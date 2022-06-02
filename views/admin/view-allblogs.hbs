@@ -1,0 +1,47 @@
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <div class="page-header">
+                <h4 class="page-title">BlOG MANAGER</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">All Blog Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="basic-datatables" class="display table  table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Destination</th>
+                                            <th>Image</th>
+                                            <th>paragraph 1</th>
+                                             <th >Bloger Name</th>
+                                             <th>Image</th>
+                                    
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each blogs}}
+                                        <tr>
+                                            <td>{{this.destination}}</td>
+                                            <td><img src="/images/{{this._id}}.jpg" alt="" style="width: 70px;heiht:70px"></td>
+                                            <td>{{this.paragraph1}}</td>
+                                            <td>{{this.userName}}</td>
+                                            <td><img src="/profile/{{this.userId}}.jpg" alt="" style="width: 70px;heiht:70px"></td>
+                                            <td> <a href="/admin/delete-blog/{{this._id}}" class=" btn btn-danger" onclick="deleteblog(event)">Delete</a></td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

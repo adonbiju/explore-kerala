@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="comment-form">
+                <h4>Write your blog here</h4>
+                <form method="POST" enctype="multipart/form-data" action="/write-blog" >
+                    <div class="form-group">
+                        <label for="">Destination:</label>
+                        <input type="text" name="destination" class="form-control" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="">District:</label>
+                        <select class="form-control" name="district" id="">
+                            {{#each allCategory}}
+                            <option value="{{this.categoryName}}">{{this.categoryName}}</option>
+                            {{/each}}
+                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Write first paragraph:</label>
+                        <textarea name="paragraph1" class="form-control mb-10" rows="5" required></textarea>
+                    </div>
+                     <div class="form-group">
+                         <label for="">Write second paragraph:</label>
+                        <textarea  name="paragraph2"  class="form-control mb-10" rows="5" required></textarea>
+                    </div>
+                     <div class="form-group">
+                          <label for="">Write third paragraph: </label>
+                          <textarea  name="paragraph3" class="form-control mb-10" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Places To Stay:</label>
+                        <input type="text" name="placesToStay" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                          <label for="">Things To Do:</label>
+                          <textarea  name="thingstoDo" class="form-control mb-10" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                          <label for="">Popular Tourist Attractions: </label>
+                          <textarea  name="popularTouristAttractions" class="form-control mb-10" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Best Time To Visit:</label>
+                        <input type="text" name="bestTimeToVisit" class="form-control" required>
+                    </div>
+                      <div class="form-group">
+                        <label for="">Nearest Airport:</label>
+                        <input type="text" name="nearestAirport" class="form-control" required>
+                    </div>
+                      <div class="form-group">
+                        <label for="">Nearest Railway Station:</label>
+                        <input type="text" name="nearestRailwayStation" class="form-control" required>
+                    </div>
+                     <div class="form-group">
+                            <label for="">Upload an Image</label>
+                            <input type="file" class="form-control-file" id="" name="image" required />
+                    </div>
+                     <input type="text" name="userName" value="{{user_login.name}}" hidden> 
+                     <input type="text" name="userId" value="{{user_login._id}}" hidden> 
+                    <button type="submit" class="button submit_btn" >Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<section class="blog-post-area section-margin">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8">
+                <div class="row">
+                    {{#each blogs}}
+                    <div class="col-md-6">
+                        <div class="single-recent-blog-post card-view">
+                            <div class="thumb">
+                                <img class="card-img rounded-0" src="/images/{{this._id}}.jpg" alt="">
+                                <ul class="thumb-info">
+                                    <li><a href="#"><i class="ti-user"></i>{{userName}}</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="details mt-20">
+                                <a href="/blog-details/{{this._id}}">
+                                    <h3>{{destination}}</h3>
+                                </a>
+                                <p>{{paragraph1}}</p>
+                                <a class="button" href="/blog-details/{{this._id}}">Read More <i
+                                        class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="col-lg-4 sidebar-widgets">
+                <div class="widget-wrap">
+                    <div class="single-sidebar-widget post-category-widget">
+                        <h4 class="single-sidebar-widget__title">Catgory</h4>
+                        <ul class="cat-list mt-20">
+                            {{#each allCategory}}
+
+                            <li>
+                                <a href="/district-detail/{{this.categoryName}}" class="d-flex justify-content-center">
+                                    <p>{{this.categoryName}}</p>
+                                    {{!-- <p>(3)</p> --}}
+                                </a>
+                            </li>
+
+                            {{/each}}
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

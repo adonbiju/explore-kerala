@@ -1,0 +1,90 @@
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <div class="page-header">
+                <h4 class="page-title">CATEGORY MANAGER</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Enter Category Details</div>
+                        </div>
+
+                        <div class="card-body">
+                            <form method="POST" enctype="multipart/form-data" action="/admin/add-category">
+                            <div class="row">
+                               
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group ">
+                                        <label>Category Name</label>
+                                        <input type="text" name="categoryName" class="form-control" required>
+                                    </div>
+                                </div>
+                                 <div class="col-md-6 col-lg-4">
+                                    <div class="form-group ">
+                                        <label>Description</label>
+                                        <input type="text" name="description" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Upload an Image</label>
+                                        <input type="file" class="form-control-file"  name="image" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                                </div>
+                           
+                            </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+           
+              <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">All Category Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="basic-datatables" class="display table  table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Category Name</th>
+                                            <th>Image</th>
+                                            <th>Description</th>
+                                            <th >Edit</th>
+                                            <th >Delete</th>
+                                         
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each allCategory}}
+                                        <tr>
+                                            <td>{{this.categoryName}}</td>
+                                             <td><img src="/category/{{this._id}}.jpg" alt="" style="width: 70px;heiht:70px"></td>
+                                             <td>{{this.description}}</td>
+                                             <td><a href="/admin/edit-category/{{this._id}}" class=" btn btn-info">Edit</a></td>
+                                             <td><a href="/admin/delete-category/{{this._id}}" class=" btn btn-danger" onclick="deletecategory(event)">Delete</a></td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

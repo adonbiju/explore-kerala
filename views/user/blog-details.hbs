@@ -1,0 +1,129 @@
+<section class="blog-post-area section-margin">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="main_blog_details">
+                    <img class="img-fluid"  src="/images/{{blogDetails._id}}.jpg" alt="">
+                    <a href="#">
+                        <h4>{{blogDetails.destination}}</h4>
+                    </a>
+                    <div class="user_details">
+                        <div class="float-left">
+                            <a href="#">{{blogDetails.district}}</a>
+                            
+                        </div>
+                        <div class="float-right mt-sm-0 mt-3">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5>{{blogDetails.userName}}</h5>
+                                    <p>{{blogDetails.date}}</p>
+                                </div>
+                                <div class="d-flex">
+                                    <img width="42" height="42" src="/profile/{{blogDetails.userId}}.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>{{blogDetails.paragraph1}}</p>
+                    <p>{{blogDetails.paragraph2}}</p>
+                    
+
+                    {{!-- <blockquote class="blockquote">
+                        <p class="mb-0">MCSE boot camps have its supporters and its detractors. Some people do not
+                            understand why you should have to spend money on boot camp when you can get the MCSE study
+                            materials yourself at a fraction of the camp price. However, who has the willpower to
+                            actually sit through a self-imposed MCSE training.</p>
+                    </blockquote> --}}
+
+    
+                    <p>{{blogDetails.paragraph3}}</p>
+                    <p>{{blogDetails.paragraph4}}</p>
+                     
+                    <p><strong style="color: black;">Places To Stay</strong> :&nbsp;{{blogDetails.placesToStay}}</p>
+                    <p><strong style="color: black;">Things to Do</strong> :&nbsp;{{blogDetails.thingstoDo}}</p>
+                    <p><strong style="color: black;">Popular Tourist Attractions</strong> :&nbsp;{{blogDetails.popularTouristAttractions}}</p>
+                    <p><strong style="color: black;">Best Time To Visit</strong> :&nbsp;{{blogDetails.bestTimeToVisit}}</p>
+                    <p><strong style="color: black;">NearestAirport</strong> :&nbsp;{{blogDetails.nearestAirport}}</p>
+                    <p><strong style="color: black;">Nearest Railway Station</strong> :&nbsp;{{blogDetails.nearestRailwayStation}}</p>
+
+                
+                </div>
+
+
+             {{!-- post a comment section start here --}}
+              <div class="comment-form">
+                    <h4>Write a Comment</h4>
+                    <form action="/comment" method="post">
+                        <div class="form-group">
+                            <textarea class="form-control mb-10" rows="5" name="comment"></textarea>
+                             <input type="text" name="userId" value="{{user_login._id}}" hidden> 
+                             <input type="text" name="blogId" value="{{blogDetails._id}}" hidden> 
+                             <input type="text" name="username" value="{{user_login.name}}" hidden> 
+                        </div>
+                        <button class="button submit_btn" type="submit">Post Comment</button>
+                    </form>
+                </div>
+
+                {{!-- post a comment section end here --}}
+
+           {{!-- comment section start here --}}
+                <div class="comments-area">
+                    <h4>{{commentCount}}&nbsp Comments</h4>
+                    {{#if blogComments}}
+                    {{#each blogComments}}
+                    <div class="comment-list">
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb">
+                                    <img  style="width: 60px;height:60px" src="/profile/{{this.userId}}.jpg" alt="">
+                                </div>
+                                <div class="desc">
+                                    <h5><a href="#">{{this.userName}}</a></h5>
+                                    <p class="date">{{this.date}} </p>
+                                    <p class="comment">
+                                        {{this.comment}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="reply-btn">
+                                    {{!-- <a href="" class="btn-reply text-uppercase">reply</a>  --}}
+                            </div>
+                        </div>
+                    </div>	
+                    {{/each}}    
+                    {{else}}
+                         <h5> There are no comments.</h5>
+                    {{/if}}                      				
+                </div>
+          {{!-- comment section end here --}}
+
+            </div>
+
+
+
+               <div class="col-lg-4 sidebar-widgets">
+          <div class="widget-wrap">
+            <div class="single-sidebar-widget post-category-widget">
+              <h4 class="single-sidebar-widget__title">Catgory</h4>
+              <ul class="cat-list mt-20">
+                {{#each allCategory}}
+
+                <li>
+                  <a href="/district-detail/{{this.categoryName}}" class="d-flex justify-content-center">
+                    <p>{{this.categoryName}}</p>
+                  </a>
+                </li>
+
+                {{/each}}
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+          
+
+        </div>
+     
+    </div>
+</section>

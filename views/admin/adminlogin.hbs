@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<div class="content" style="margin-top: 5%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="icon/undraw_world_re_768g.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3>Login</h3>
+            </div>
+            <form  action="/admin" method="POST">
+              <div class="form-group first">
+                <label for="">Email</label>
+                <input type="email" name="email" class="form-control" id="" value="abcd@gmail.com">
+              </div>
+              <div class="form-group last mb-4">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control" id="" value="1234">
+              </div>
+              {{#if loginErr}}
+              <div class="form-group last mb-4">
+                <label for="" style="color: #f10707;">{{ loginErr}}</label>
+              </div>
+              {{/if}}
+              <input type="submit" value="LogIn" class="btn btn-block btn-primary">
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
