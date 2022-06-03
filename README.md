@@ -29,7 +29,7 @@ using Hbs(Handlebars), Node.js, Express.js and MongoDB.
 
 # Demo
    *  user:   https://explorekerala.herokuapp.com/
-   *  admin:  https://adonsworld.herokuapp.com/admin
+   *  admin:  https://explorekerala.herokuapp.com/admin
 # User Page
 ![User Page2](/ScreenShots/user1.jpg)<br/><hr/>
 
