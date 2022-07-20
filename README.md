@@ -21,7 +21,7 @@ using Hbs(Handlebars), Node.js, Express.js and MongoDB.
    *  Detailed Blog Page :- where user can see the detail of particular place and also other user can write commentts regarding that place.
   
 # Features on admin side
-   *  login
+   *  login Page
    *  Dashboard :- where admin can see total number of users, total number of blogs ,total number of categorys, and all the categorys avilable.
    *  Add category :- where admin can add new category,edit category,delete category
    *  user Manager:-  where admin can Block or Unblock or Delete user
