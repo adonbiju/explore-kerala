@@ -28,8 +28,8 @@ using Hbs(Handlebars), Node.js, Express.js and MongoDB.
    *  All Blogs :- where admin can delete the unwanted Blogs.
 
 # Demo
-   *  user:   https://explorekerala.herokuapp.com/
-   *  admin:  https://explorekerala.herokuapp.com/admin
+   *  user:   https://explorekerala.onrender.com
+   *  admin:  https://explorekerala.onrender.com/admin
 # User Page
 ![User Page2](/ScreenShots/user1.jpg)<br/><hr/>
 
