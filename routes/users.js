@@ -3,6 +3,7 @@ var router = express.Router();
 const userHelper = require('../helpers/user-helper');
 const adminHelper=require('../helpers/admin-helper')
 const fs=require('fs')
+var db=require('../config/connection')
 
 //twilio
 const accountSid =process.env.accountSid
@@ -22,12 +23,16 @@ const verifyLogin=(req,res,next)=>{
 }
 
 router.get('/',async(req,res)=>{
-  let user_login=req.session.user;
-  allCategory=await adminHelper.getALLCategory() 
-  userHelper.getALLBlogs().then((blogs)=>{
-    
-    res.render('user/home',{user:true,user_login,blogs,allCategory})
-  })
+  if(db.get()===null){
+    res.render('user/something-went-wrong')
+  }else{
+    let user_login=req.session.user;
+    allCategory=await adminHelper.getALLCategory() 
+    userHelper.getALLBlogs().then((blogs)=>{
+      res.render('user/home',{user:true,user_login,blogs,allCategory})
+    })
+  }
+ 
 })
 
 
